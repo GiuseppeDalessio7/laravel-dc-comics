@@ -14,9 +14,6 @@ class ComicSeeder extends Seeder
     public function run(): void
     {
         //
-
-
-
         $Comics = [
             [
                 "title" => "Action Comics #1000: The Deluxe Edition",
@@ -230,5 +227,20 @@ class ComicSeeder extends Seeder
                 ],
             ],
         ];
+
+        foreach ($Comics as $comic) {
+            $newComic = new Comic();
+            $newComic->title = $comic['title'];
+            $newComic->description = $comic['description'];
+            $newComic->thumb = $comic['thumb'];
+            $newComic->price = $comic['price'];
+            $newComic->series = $comic['series'];
+            $newComic->sale_date = $comic['sale_date'];
+            $newComic->type = $comic['type'];
+            $newComic->artists = implode(', ', $comic['artists']);
+            $newComic->writers = implode(', ', $comic['writers']);
+
+            $newComic->save();
+        }
     }
 }
