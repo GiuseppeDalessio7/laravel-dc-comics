@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>@yield('page-title', 'My title')</title>
 
     <!-- Fonts -->
     <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -17,21 +17,30 @@
 
 <body>
 
-    <ul class="nav justify-content-center  ">
+
+    <ul class="nav justify-content-center">
         <li class="nav-item">
-            <a class="nav-link active" href="#" aria-current="page">Dashboard</a>
+            <a class="nav-link active" href="#" aria-current="page">DashBoard</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('tasks.create') }}">Create Task</a>
+            <a class="nav-link" href="#">Comic</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link " href="#">User's page</a>
+            <a class="nav-link " href="#">Users Page</a>
         </li>
     </ul>
+
 
     <main class="bg-light">
         @yield('content')
     </main>
+
+
+    <footer class="bg-dark text-light text-center py-3">
+        <div class="container">
+            <p>&copy; Dc Comics 4 ADMIN </p>
+        </div>
+    </footer>
 
 </body>
 
