@@ -8,7 +8,7 @@
 
                     <div class="col-md-4">
 
-                        <img src="{{ asset('storage/' . $comic->thumb) }}" class="img-fluid rounded-start" alt="...">
+                        <img src="{{ asset('storage/ ' . $comic->thumb) }}" class="img-fluid rounded-start" alt="...">
                     </div>
                     <div class="col-md-8 card ">
                         <div class="card-body">

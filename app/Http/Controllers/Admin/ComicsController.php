@@ -43,7 +43,6 @@ class ComicsController extends Controller
         $newComic->title = $data['title'];
         $newComic->price = $data['price'];
         $newComic->series = $data['series'];
-        $newComic->thumb = $data['thumb'];
 
         if ($request->has('thumb')) {
             $img_path = Storage::put('comics_thumbs', $request->thumb);
