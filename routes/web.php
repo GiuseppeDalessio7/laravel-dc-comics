@@ -18,5 +18,11 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('/list_comic', function () {
+    return view('list_comic');
+});
+
 
 Route::resource('admin/comics', ComicsController::class);
+
+Route::resource('list_comic', ComicsController::class);

@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use App\Models\Comic;
 use Illuminate\Http\Request;
+
 
 class ComicsController extends Controller
 {
@@ -13,17 +15,21 @@ class ComicsController extends Controller
      */
     public function index()
     {
-
         $comics = Comic::all();
         return view('admin.comics.index', compact('comics'));
+
+        $list_comic = Comic::all();
+        return view('list_comic', compact('comics'));
     }
+
+
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        //
+        return view('admin.comics.create');
     }
 
     /**
@@ -31,7 +37,22 @@ class ComicsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $newComic = new Comic();
+        $newComic->title = $data['title'];
+        $newComic->price = $data['price'];
+        $newComic->series = $data['series'];
+        $newComic->thumb = $data['thumb'];
+
+        if ($request->has('thumb')) {
+            $img_path = Storage::put('comics_thumbs', $request->thumb);
+            $newComic->thumb = $img_path;
+        }
+
+        $newComic->save();
+
+        return to_route('comics.index',)->with('message', 'Well Done, New Entry Added Succeffully');
     }
 
     /**

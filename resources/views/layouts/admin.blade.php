@@ -20,18 +20,18 @@
 
     <ul class="nav justify-content-center">
         <li class="nav-item">
-            <a class="nav-link active" href="#" aria-current="page">DashBoard</a>
+            <a class="nav-link active" href="{{ url('admin/comics') }}" aria-current="page">DashBoard</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Comic</a>
+            <a class="nav-link" href="{{ url('admin/comics/create') }}">Create Comic</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link " href="#">Users Page</a>
+            <a class="nav-link " href="{{ url('/') }}">Users Page</a>
         </li>
     </ul>
 
 
-    <main class="bg-light">
+    <main class="">
         @yield('content')
     </main>
 

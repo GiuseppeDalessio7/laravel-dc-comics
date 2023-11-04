@@ -1,9 +1,6 @@
-@extends('layouts.admin')
-
-
+@extends('layouts.app')
 
 @section('content')
-    @include('partials.createform')
     <div class="container">
         <div class="card mb-3 mt-3">
             @forelse ($comics as $comic)
