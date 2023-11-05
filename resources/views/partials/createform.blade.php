@@ -11,8 +11,8 @@
             <div class="">
                 <label for="thumb" class="form-label">Choose file</label>
                 <input type="file" class="form-control" name="thumb" id="thumb" placeholder=""
-                    aria-describedby="cover_image_helper">
-                <div id="cover_image_helper" class="form-text">Upload an image for the current product</div>
+                    aria-describedby="thumb">
+                <div id="thumb" class="form-text">Upload an image for the current product</div>
             </div>
 
             <div class="col-md-4">
@@ -36,8 +36,8 @@
                 <input type="text" class="form-control" name="type" id="type">
             </div>
             <div class="col-md-4">
-                <label for="artist" class="form-label">Artist</label>
-                <input type="text" class="form-control" name="artist" id="artist">
+                <label for="artists" class="form-label">Artists</label>
+                <input type="text" class="form-control" name="artists" id="artists">
             </div>
             <div class="col-md-4">
                 <label for="writers" class="form-label">Writers</label>

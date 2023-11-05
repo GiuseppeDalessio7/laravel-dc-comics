@@ -39,8 +39,8 @@
                     <input type="text" class="form-control" name="type" id="type">
                 </div>
                 <div class="col-md-4">
-                    <label for="artist" class="form-label">Artist</label>
-                    <input type="text" class="form-control" name="artist" id="artist">
+                    <label for="artists" class="form-label">Artists</label>
+                    <input type="text" class="form-control" name="artists" id="artists">
                 </div>
                 <div class="col-md-4">
                     <label for="writers" class="form-label">Writers</label>

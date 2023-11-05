@@ -15,11 +15,11 @@ class ComicsController extends Controller
      */
     public function index()
     {
-        $comics = Comic::all();
+        $comics = Comic::orderByDesc('id')->get();
         return view('admin.comics.index', compact('comics'));
 
-        $list_comic = Comic::all();
-        return view('list_comic', compact('comics'));
+        $comics = Comic::all();
+        return view('/list_comics', compact('comics'));
     }
 
 
@@ -43,6 +43,10 @@ class ComicsController extends Controller
         $newComic->title = $data['title'];
         $newComic->price = $data['price'];
         $newComic->series = $data['series'];
+        $newComic->type = $data['type'];
+        $newComic->artists = $data['artists'];
+        $newComic->writers = $data['writers'];
+
 
         if ($request->has('thumb')) {
             $img_path = Storage::put('comics_thumbs', $request->thumb);
@@ -59,7 +63,7 @@ class ComicsController extends Controller
      */
     public function show(Comic $comic)
     {
-        //
+        return view('admin.comics.show', compact('comic'));
     }
 
     /**

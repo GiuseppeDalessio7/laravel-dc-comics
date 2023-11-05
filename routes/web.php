@@ -23,6 +23,8 @@ Route::get('/list_comic', function () {
 });
 
 
+
+
 Route::resource('admin/comics', ComicsController::class);
 
 Route::resource('list_comic', ComicsController::class);

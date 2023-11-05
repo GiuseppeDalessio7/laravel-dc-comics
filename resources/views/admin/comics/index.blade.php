@@ -14,6 +14,10 @@
                         <img src="{{ asset('storage/' . $comic->thumb) }}" class="img-fluid rounded-start" alt="...">
                     </div>
                     <div class="col-md-8 card ">
+
+                        <a class="btn btn-primary w-25" href="{{ route('comics.show', $comic) }}">Show</a>
+
+
                         <div class="card-body">
                             <h5 class="card-title">{{ $comic->title }}</h5>
                             <p class="card-text">{{ $comic->description }}</p>
@@ -22,8 +26,12 @@
                             <p class="card-text text-body-secondary">{{ $comic->type }}</p>
                             <p class="card-text text-body-secondary">{{ $comic->artists }}</p>
                             <p class="card-text text-body-secondary">{{ $comic->writers }}</p>
+
+
+
                         </div>
                     </div>
+
 
 
                 </div>
