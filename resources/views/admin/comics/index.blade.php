@@ -15,8 +15,9 @@
                     </div>
                     <div class="col-md-8 card ">
 
-                        <a class="btn btn-primary w-25" href="{{ route('comics.show', $comic) }}">Show</a>
+                        <a class="btn btn-primary w-25 mb-2" href="{{ route('comics.show', $comic) }}">Show</a>
 
+                        <a class="btn btn-primary w-25" href="{{ route('comics.edit', $comic) }}">Update</a>
 
                         <div class="card-body">
                             <h5 class="card-title">{{ $comic->title }}</h5>

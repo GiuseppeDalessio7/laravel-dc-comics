@@ -71,7 +71,7 @@ class ComicsController extends Controller
      */
     public function edit(Comic $comic)
     {
-        //
+        return view('admin.comics.edit', compact('comic'));
     }
 
     /**
@@ -79,7 +79,23 @@ class ComicsController extends Controller
      */
     public function update(Request $request, Comic $comic)
     {
-        //
+        $data = $request->all();
+
+        // SE SIA LA REQUEST CHE L'ENTITA' CHE STIAMO EDITANDO HANNO UN thumb (CHIAVE DELL'IMMAGINE)
+        if ($request->has('thumb') && $comic->thumb) {
+
+            // VUOL DIRE CHE NELLO STORAGE E' PRESENTE UN'IMMAGINE DA ELIMINARE
+            Storage::delete($comic->thumb);
+
+            // LA NUOVA IMMAGINE VIENE SALVATA E IL SUO PERCORSO ASSEGNATO A $data
+            $newCover = $request->thumb;
+            $path = Storage::put('comics_thumbs', $newCover);
+            $data['thumb'] = $path;
+        }
+
+        // AGGIORNA L'ENTITA' CON I VALORI DI $data
+        $comic->update($data);
+        return to_route('comics.index', $comic)->with('message', 'Well Done, Element Edited Succeffully');
     }
 
     /**

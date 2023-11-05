@@ -8,7 +8,7 @@
             <div class="h-100 p-5 text-dark border rounded-3">
 
                 <h2>{{ $comic->title }}</h2>
-                <img src="{{ $comic->thumb }}" alt="">
+                <img src="{{ asset('storage/' . $comic->thumb) }}" alt="">
                 <p>{{ $comic->description }}</p>
                 <p>{{ $comic->price }}</p>
                 <p>{{ $comic->series }}</p>
