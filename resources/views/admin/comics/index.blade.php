@@ -5,17 +5,6 @@
 @section('content')
     @include('partials.createform')
 
-
-    @if (session('message'))
-        <div class="alert alert-primary alert-dismissible fade show" role="alert">
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            <strong>Nice </strong>{{ session('message') }}
-        </div>
-    @endif
-
-
-
-
     <div class="container">
         <div class="card mb-3 mt-3">
             @forelse ($comics as $comic)
@@ -31,10 +20,40 @@
 
                         <a class="btn btn-primary w-25" href="{{ route('comics.edit', $comic) }}">Update</a>
 
+
+                        <button type="button" class="btn btn-danger w-25  mt-2" data-bs-toggle="modal"
+                            data-bs-target="#modalId-{{ $comic->id }}">
+                            Delete
+                        </button>
+
+                        <!-- Modal Body -->
+                        <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
+                        <div class="modal fade" id="modalId-{{ $comic->id }}" tabindex="-1" data-bs-backdrop="static"
+                            data-bs-keyboard="false" role="dialog" aria-labelledby="modalTitle-{{ $comic->id }}"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm"
+                                role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="modalTitle-{{ $comic->id }}">Modal id:
+                                            {{ $comic->id }}</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Attention! This is a destructive operation that cannot be undone.
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <form action="{{ route('comics.destroy', $comic) }}" method="post">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger w-25 mt-2">Delete</button>
+
                         </form>
 
                         <div class="card-body">
