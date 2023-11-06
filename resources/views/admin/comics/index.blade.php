@@ -59,6 +59,7 @@
 
                         <div class="card-body">
                             <h5 class="card-title">{{ $comic->title }}</h5>
+
                             <p class="card-text">{{ $comic->description }}</p>
                             <p class="card-text text-body-secondary">{{ $comic->price }}</p>
                             <p class="card-text text-body-secondary">{{ $comic->sale_date }}</p>
