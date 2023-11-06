@@ -9,7 +9,7 @@
 
                 @method('PUT')
                 <div class="col-md-4">
-                    <label for="{{ $comic->title }}" class="form-label">Title Comic</label>
+                    <label for="text" class="form-label">Title Comic</label>
                     <input type="text" class="form-control" name="title" id="title" required>
                 </div>
                 <div class="">

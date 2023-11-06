@@ -4,6 +4,18 @@
 
 @section('content')
     @include('partials.createform')
+
+
+    @if (session('message'))
+        <div class="alert alert-primary alert-dismissible fade show" role="alert">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <strong>Nice </strong>{{ session('message') }}
+        </div>
+    @endif
+
+
+
+
     <div class="container">
         <div class="card mb-3 mt-3">
             @forelse ($comics as $comic)
@@ -18,6 +30,12 @@
                         <a class="btn btn-primary w-25 mb-2" href="{{ route('comics.show', $comic) }}">Show</a>
 
                         <a class="btn btn-primary w-25" href="{{ route('comics.edit', $comic) }}">Update</a>
+
+                        <form action="{{ route('comics.destroy', $comic) }}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger w-25 mt-2">Delete</button>
+                        </form>
 
                         <div class="card-body">
                             <h5 class="card-title">{{ $comic->title }}</h5>

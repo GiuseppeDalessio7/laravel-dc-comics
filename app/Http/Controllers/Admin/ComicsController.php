@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use App\Models\Comic;
+use Illuminate\Console\View\Components\Task;
 use Illuminate\Http\Request;
 
 
@@ -103,6 +104,7 @@ class ComicsController extends Controller
      */
     public function destroy(Comic $comic)
     {
-        //
+        $comic->delete();
+        return to_route('comics.index', $comic)->with('message', 'Well Done, Element Delete Succeffully');;
     }
 }
