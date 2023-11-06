@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\ComicsController;
+use App\Models\Comic;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,12 +20,12 @@ Route::get('/', function () {
 });
 
 Route::get('/list_comic', function () {
-    return view('list_comic');
+    $comics = Comic::orderByDesc('id')->get();
+
+    return view('list_comic', compact('comics'));
 });
 
 
 
 
 Route::resource('admin/comics', ComicsController::class);
-
-Route::resource('list_comic', ComicsController::class);
